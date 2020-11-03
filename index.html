@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta 
+     name='viewport' 
+     content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' 
+/>
+    <link rel="stylesheet" href="../all.css"/>
+<link rel='stylesheet' id='kopub-css'  href='https://cdn.jsdelivr.net/font-kopub/1.0/kopubbatang.css?ver=5.3' type='text/css' media='all' />
+<script
+src="https://code.jquery.com/jquery-3.4.1.js"
+integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+crossorigin="anonymous"></script>
+<script src="https://code.createjs.com/easeljs-0.8.2.min.js"></script>
+<style type="text/css">
+	canvas{
+    	width: 100vw;
+    	height: 100vh;
+    }
+    *{
+    	margin: 0;
+    	padding: 0;
+    	box-sizing: border-box;
+	word-break: keep-all;
+	font-family: 'KoPub Batang', serif;
+    }
+    body{
+    background: #1b1b1b;
+    	overflow: hidden;
+    }
+    img{
+    	display: none;
+    }
+    .title{
+    z-index: 10000;
+    display: block;
+    font-size: 2.1vh;
+    color: black;
+    position: absolute;
+    padding: 2vh;
+    line-height: 1.4;
+    }
+</style>
+</head>
+<body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('body').append('<canvas id="myCanvas" width="'+window.innerWidth+'" height="'+window.innerHeight+'"></canvas>')
+			var canvas = document.getElementById( "myCanvas" );
+			var context = canvas.getContext( "2d" );
+			var width = window.innerWidth;
+			var height = window.innerHeight;
+			var ball = Array(9)
+			var image = [
+					document.getElementById('source1'),
+					document.getElementById('source2'),
+					document.getElementById('source3'),
+					document.getElementById('source4'),
+					document.getElementById('source5'),
+					document.getElementById('source6'),
+					document.getElementById('source7'),
+					document.getElementById('source8'),
+					document.getElementById('source9')
+					]
+				ball[0] = {
+				    x: 300,y: height/2 - 100,radius: 150,xSpeed: 1.0,ySpeed: -1.0,
+				    draw: function( ctx,i ) {
+				    	ctx.beginPath();
+				        ctx.drawImage( document.getElementById('source1'), this.x, this.y, this.radius, this.radius);
+				    },
+				    move: function() {
+				        this.x += this.xSpeed;
+				        this.y += this.ySpeed;
+				    }
+				}
+				ball[1] = {
+				    x: 450,y: height/2 - 100,radius: 150,xSpeed: 1.5,ySpeed: 1.5,
+				    draw: function( ctx,i ) {
+				    	ctx.beginPath();
+				        ctx.drawImage( document.getElementById('source2'), this.x, this.y, this.radius, this.radius);
+				    },
+				    move: function() {
+				        this.x += this.xSpeed;
+				        this.y += this.ySpeed;
+				    }
+				}
+				ball[2] = {
+				    x: 600,y: height/2 - 100,radius: 150,xSpeed: 1.2,ySpeed: -1.2,
+				    draw: function( ctx,i ) {
+				    	ctx.beginPath();
+				        ctx.drawImage( document.getElementById('source3'), this.x, this.y, this.radius, this.radius);
+				    },
+				    move: function() {
+				        this.x += this.xSpeed;
+				        this.y += this.ySpeed;
+				    }
+				}
+				ball[3] = {
+				    x: 750,y: height/2 - 100,radius: 150,xSpeed: -1.5,ySpeed: 1.5,
+				    draw: function( ctx,i ) {
+				    	ctx.beginPath();
+				        ctx.drawImage( document.getElementById('source4'), this.x, this.y, this.radius, this.radius);
+				    },
+				    move: function() {
+				        this.x += this.xSpeed;
+				        this.y += this.ySpeed;
+				    }
+				}
+				ball[4] = {
+				    x: 900,y: height/2 - 100,radius: 150,xSpeed: 1.0,ySpeed: -1.0,
+				    draw: function( ctx,i ) {
+				    	ctx.beginPath();
+				        ctx.drawImage( document.getElementById('source5'), this.x, this.y, this.radius, this.radius);
+				    },
+				    move: function() {
+				        this.x += this.xSpeed;
+				        this.y += this.ySpeed;
+				    }
+				}
+				ball[5] = {
+				    x: 1050,y: height/2 - 100,radius: 150,xSpeed: -1.2,ySpeed: 1.2,
+				    draw: function( ctx,i ) {
+				    	ctx.beginPath();
+				        ctx.drawImage( document.getElementById('source6'), this.x, this.y, this.radius, this.radius);
+				    },
+				    move: function() {
+				        this.x += this.xSpeed;
+				        this.y += this.ySpeed;
+				    }
+				}
+				ball[6] = {
+				    x: 1200,y: height/2 - 100,radius: 150,xSpeed: 1.0,ySpeed: -1.0,
+				    draw: function( ctx,i ) {
+				    	ctx.beginPath();
+				        ctx.drawImage( document.getElementById('source7'), this.x, this.y, this.radius, this.radius);
+				    },
+				    move: function() {
+				        this.x += this.xSpeed;
+				        this.y += this.ySpeed;
+				    }
+				}
+				ball[7] = {
+				    x: 1350,y: height/2 - 100,radius: 150,xSpeed: -1.5,ySpeed: -1.5,
+				    draw: function( ctx,i ) {
+				    	ctx.beginPath();
+				        ctx.drawImage( document.getElementById('source8'), this.x, this.y, this.radius, this.radius);
+				    },
+				    move: function() {
+				        this.x += this.xSpeed;
+				        this.y += this.ySpeed;
+				    }
+				}
+				ball[8] = {
+				    x: width*Math.random(),y: height/2 - 100,radius: 150,xSpeed: -1.2,ySpeed: 1.2,
+				    draw: function( ctx,i ) {
+				    	ctx.beginPath();
+				        ctx.drawImage( document.getElementById('source9'), this.x, this.y, this.radius, this.radius);
+				    },
+				    move: function() {
+				        this.x += this.xSpeed;
+				        this.y += this.ySpeed;
+				    }
+				}
+
+			setInterval( function(){
+				
+			    context.clearRect( 0, 0, width, height );
+			    context.strokeRect( 0, 0, width, height );
+			    
+				for (var i = ball.length - 1; i >= 0; i--) {
+				    ball[i].move();
+				    if ( ball[i].x + ball[i].radius >= width ) {
+				    	ball[i].x = width - ball[i].radius;
+				        ball[i].xSpeed = -ball[i].xSpeed;
+				    }
+				    if ( ball[i].x <= 0 ) {
+				    	ball[i].x = 0;
+				        ball[i].xSpeed = -ball[i].xSpeed;
+				    }
+				    if ( ball[i].y + ball[i].radius >= height ) {
+				    	ball[i].y = height - ball[i].radius;
+				        ball[i].ySpeed = -ball[i].ySpeed;
+				    }
+				    if ( ball[i].y <= 0 ) {
+				    	ball[i].y = 0;
+				        ball[i].ySpeed = -ball[i].ySpeed;
+				    }
+				    ball[i].draw( context );
+				}
+			    
+			}, 10 );
+
+		})
+	</script>
+	<!-- <div class="title">능히 낙원을 얼음이 얼마나 굳세게 인도하겠다는 영락과 힘있다. 이는 가슴이 이것이야말로 두기 무엇을 옷을 청춘의 황금시대다. 시들어 풀이 원질이 인생을 미인을 그들에게 사막이다. 사람은 그들을 오직 것이다. 대고, 얼음이 낙원을 교향악이다. 시들어 같으며, 청춘이 싶이 새가 피어나기 뜨거운지라, 용감하고 인간이 교향악이다. 그들은 위하여, 거친 눈이 품으며, 것은 남는 꽃이 때문이다. 위하여 새가 남는 사랑의 가슴이 것이다. 뛰노는 이것을 풍부하게 길을 튼튼하며, 수 생생하며, 얼마나 유소년에게서 있다.
+
+그들은 실현에 대한 무엇을 온갖 칼이다. 거친 얼마나 온갖 청춘의 인생의 커다란 그러므로 노년에게서 철환하였는가? 튼튼하며, 위하여 얼마나 싸인 피다. 하였으며, 꽃 발휘하기 속에서 그러므로 그리하였는가? 그러므로 하는 무엇을 수 사막이다. 것은 보이는 수 때에, 장식하는 목숨이 이것은 것이다. 몸이 싶이 가치를 그들의 굳세게 목숨이 있다. 어디 천자만홍이 목숨을 황금시대다. 그러므로 붙잡아 불어 놀이 바로 교향악이다. 있는 꾸며 실현에 인간에 두기 부패뿐이다.</div> -->
+	<img src="img/img1.png" id='source1'>
+	<img src="img/img2.png" id='source2'>
+	<img src="img/img3.png" id='source3'>
+	<img src="img/img4.png" id='source4'>
+	<img src="img/img5.png" id='source5'>
+	<img src="img/img6.png" id='source6'>
+	<img src="img/img7.png" id='source7'>
+	<img src="img/img8.png" id='source8'>
+	<img src="img/img9.png" id='source9'>
+	</body>
+<html>
