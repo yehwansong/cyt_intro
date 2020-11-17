@@ -13,25 +13,25 @@ integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
 crossorigin="anonymous"></script>
 <script src="https://code.createjs.com/easeljs-0.8.2.min.js"></script>
 <style type="text/css">
-	canvas{
+	.intro canvas{
     	width: 100vw;
     	height: 100vh;
     }
-    *{
+    .intro *{
     	margin: 0;
     	padding: 0;
     	box-sizing: border-box;
 	word-break: keep-all;
 	font-family: 'KoPub Batang', serif;
     }
-    body{
+    .intro{
     background: #1b1b1b;
     	overflow: hidden;
     }
-    img{
+    .intro img{
     	display: none;
     }
-    .title{
+    .intro .title{
     z-index: 10000;
     display: block;
     font-size: 2.1vh;
@@ -42,10 +42,10 @@ crossorigin="anonymous"></script>
     }
 </style>
 </head>
-<body>
+<body class="intro">
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$('body').append('<canvas id="myCanvas" width="'+window.innerWidth+'" height="'+window.innerHeight+'"></canvas>')
+			$('.intro').append('<canvas id="myCanvas" width="'+window.innerWidth+'" height="'+window.innerHeight+'"></canvas>')
 			var canvas = document.getElementById( "myCanvas" );
 			var context = canvas.getContext( "2d" );
 			var width = window.innerWidth;
@@ -192,6 +192,7 @@ crossorigin="anonymous"></script>
 
 		})
 	</script>
+	<div class="intro">
 	<!-- <div class="title">능히 낙원을 얼음이 얼마나 굳세게 인도하겠다는 영락과 힘있다. 이는 가슴이 이것이야말로 두기 무엇을 옷을 청춘의 황금시대다. 시들어 풀이 원질이 인생을 미인을 그들에게 사막이다. 사람은 그들을 오직 것이다. 대고, 얼음이 낙원을 교향악이다. 시들어 같으며, 청춘이 싶이 새가 피어나기 뜨거운지라, 용감하고 인간이 교향악이다. 그들은 위하여, 거친 눈이 품으며, 것은 남는 꽃이 때문이다. 위하여 새가 남는 사랑의 가슴이 것이다. 뛰노는 이것을 풍부하게 길을 튼튼하며, 수 생생하며, 얼마나 유소년에게서 있다.
 
 그들은 실현에 대한 무엇을 온갖 칼이다. 거친 얼마나 온갖 청춘의 인생의 커다란 그러므로 노년에게서 철환하였는가? 튼튼하며, 위하여 얼마나 싸인 피다. 하였으며, 꽃 발휘하기 속에서 그러므로 그리하였는가? 그러므로 하는 무엇을 수 사막이다. 것은 보이는 수 때에, 장식하는 목숨이 이것은 것이다. 몸이 싶이 가치를 그들의 굳세게 목숨이 있다. 어디 천자만홍이 목숨을 황금시대다. 그러므로 붙잡아 불어 놀이 바로 교향악이다. 있는 꾸며 실현에 인간에 두기 부패뿐이다.</div> -->
@@ -204,5 +205,6 @@ crossorigin="anonymous"></script>
 	<img src="img/img7.png" id='source7'>
 	<img src="img/img8.png" id='source8'>
 	<img src="img/img9.png" id='source9'>
+</div>
 	</body>
 <html>
